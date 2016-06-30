@@ -1,0 +1,17 @@
+{
+  "name": "meanchats",
+  "version": "1.0.0",
+  "description": "Chat application using Socket.IO and MEAN stack",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.10.2",
+    "serve-favicon": "^2.3.0",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "MThomps4",
+  "license": "MIT"
+}
