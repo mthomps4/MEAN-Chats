@@ -1,11 +1,9 @@
-'use strict';
-
+var app = require('express')();
 var http = require('http').Server(app);
 var path = require('path');
 var express = require('express');
 var favicon = require('serve-favicon');
 var io = require('socket.io')(http);
-var app = express();
 
 app.use(express.static('public'));
 
