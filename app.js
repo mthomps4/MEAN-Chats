@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,13 +10,15 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+// call socket.io to the app
+app.io = require('socket.io')();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');//kept for error.jade
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -59,6 +62,21 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+// start listen with socket.io
+app.io.on('connection', function(socket){
+  console.log('a user connected');
+
+  socket.on('new message', function(msg){
+     console.log('new message: ' + msg);
+     app.io.emit('chat message', msg);
+   });
+
+   socket.on('disconnect', function(){
+     console.log('user disconnected');
+   });
+});
+
 
 
 module.exports = app;
