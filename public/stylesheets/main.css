@@ -6,9 +6,11 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #ECEFF1;
 }
 
 header{
+  z-index:10000;
   background-color:#00897B;
   color:white;
   padding:1em;
@@ -41,6 +43,7 @@ a {
 
 
 form {
+  z-index: 100000;
   background:#FFF;
   position: fixed;
   bottom: 0;
@@ -69,7 +72,6 @@ form {
   padding:10px;
   flex-grow: 1;
   margin:3px;
-
 }
 
 #send{
@@ -98,21 +100,41 @@ input:focus {
     box-shadow: 0 0 10px #03A9F4;
 }
 
+/*#wrapper{
+  position:relative;
+  height:100%;
+}*/
 
 #messages {
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+  z-index: -1;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  position:absolute;
+  position:fixed;
   bottom:50px;
   width:100%;
-
 }
 
 #messages li {
-  padding: 5px 10px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #ccc;
+  min-height: 2em;
+  height:auto;
 }
 
-#messages li:nth-child(odd) {
-  background: #eee;
+#messages li:nth-child(even) {
+  background: #FeFeFe;
+}
+
+/*#messages li:nth-child(odd) {
+  background: #ECEFF1;
+}*/
+
+@media (max-device-width: 480px)
+    {
+    #messages{
+      height: calc(100vh - 220px);
+      }
 }

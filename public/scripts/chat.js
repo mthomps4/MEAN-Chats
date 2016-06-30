@@ -16,7 +16,11 @@ var ul = document.getElementById('messages');
 // socket.on('chat message', function(msg){
 //  $('#messages').append($('<li>').text(msg));
 //  });
-
+function updateScroll(){
+    var ul = document.getElementById("messages");
+    ul.scrollTop = ul.scrollHeight;
+      console.log(ul.scrollHeight + 100);
+}
 
 if(form.addEventListener){
   form.addEventListener("submit",
@@ -35,5 +39,6 @@ socket.on('chat message', function(msg){
   var textnode = document.createTextNode(msg);
   node.appendChild(textnode);
   ul.appendChild(node);
+  updateScroll();
   console.log('RAWR');
 });
