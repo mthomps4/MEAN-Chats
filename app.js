@@ -67,8 +67,8 @@ app.use(function(err, req, res, next) {
 app.io.on('connection', function(socket){
   console.log('a user connected');
 
-  socket.on('new message', function(msg){
-     console.log('new message: ' + msg);
+  socket.on('chat message', function(msg){
+     console.log('chat message: ' + msg);
      app.io.emit('chat message', msg);
    });
 

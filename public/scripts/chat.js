@@ -8,10 +8,15 @@ var ul = document.getElementById('messages');
 
 // $('form').submit(function(){
 //   socket.emit('chat message', $('#m').val());
+//   console.log($('#m').val());
 //   $('#m').val('');
-//   console.log(mes);
 //   return false;
 // });
+
+// socket.on('chat message', function(msg){
+//  $('#messages').append($('<li>').text(msg));
+//  });
+
 
 if(form.addEventListener){
   form.addEventListener("submit",
@@ -23,7 +28,6 @@ if(form.addEventListener){
   },
     false)
 };
-
 
 
 socket.on('chat message', function(msg){
