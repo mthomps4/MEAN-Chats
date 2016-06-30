@@ -1,24 +1,30 @@
 <!doctype html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>MEANchats</title>
+
 <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
 </head>
 <body>
 
 <header>
-<h1> MEAN chats </h1>
-<p> welcome to Express </p>
+<img class="noCat" src="/images/NoCat.jpg">
+<div id="title">MEAN C<sub class="claw">H</sub>ATS</div>
 </header>
 
 <ul id="messages"></ul>
+
    <form id="chatForm" action="">
-     <input id="m" autocomplete="off" /><button>Send</button>
+     <div id="MSGBOX">
+       <input id="nickname" placeholder="Name: " />
+       <input id="m" autocomplete="off" />
+       <button id="send">Send</button>
+    </div>
    </form>
 
    <script src="/socket.io/socket.io.js"></script>
-   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
    <script src="/scripts/chat.js"></script>
 </body>
 </html>
