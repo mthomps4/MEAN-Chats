@@ -1,2 +1,2 @@
 # MEAN-Chats
-A chat application with Socket.io and MEAN stack
+A chat application in node and socket.io 
